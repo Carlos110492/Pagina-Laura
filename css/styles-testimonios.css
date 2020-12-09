@@ -1,0 +1,586 @@
+/*fuentes*/
+@font-face{
+    font-family: "trebuchetMS";
+    src: url(fonts/TrebuchetMS.ttf);
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face{
+    font-family: "bebasNeue";
+    src: url('fonts/BebasNeue.otf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face{
+    font-family: "WebSymbolsRegular";
+    src: url('fonts/websymbols-regular-webfont.eot');
+    src: url('fonts/websymbols-regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('fonts/websymbols-regular-webfont.woff') format('woff'),
+         url('fonts/websymbols-regular-webfont.ttf') format('truetype'),
+         url('fonts/websymbols-regular-webfont.svg#WebSymbolsRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*generales*/
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    background-image: url("../img/pattern.png");
+}
+
+.wrap{
+    width: 1250px;
+    margin: 0px auto;/*centra el contenido*/
+}
+
+img{
+    height: 38px;
+    width: 63px;
+}
+
+.gear, .icon{
+    font-family: "WebSymbolsRegular";
+}
+
+.clearfix{
+    float: none;
+    clear: both;
+}
+
+/*imagen de fondo*/
+#imagen{
+    display: block;
+    clear: both;
+    position: absolute;
+    width: 100%;
+    height: 390px;
+    background-image: url(../img/parque.jpg);
+    background-size: 100%;
+    /*background-attachment: fixed;*/
+    background-position: 0px -290px;
+    z-index: 1;
+    animation: mover 7s linear;
+    margin-bottom: 1000px;
+}
+
+#imagen img{
+    background-size: 100% 100%;
+}
+
+@keyframes mover{
+    0%{
+        background-position: 0px 10px;
+    }
+    100%{
+        background-position: 0px -290px;
+    }
+}
+
+/*cabecera*/
+#header{
+    position: fixed;
+    display: block;
+    width: 100%;
+    height: 70px;
+    /*position: fixed;*/
+    margin-bottom: 0px;
+    background-color: rgb(134, 134, 134);
+    background-color:black;
+    font-family: "bebasNeue";
+    color: #37bcf9;
+    z-index: 5;
+    transition: all 300ms;
+}
+
+#header:hover{
+    background-color: #000000;
+}
+
+.sobre {
+    color:rgb(10, 9, 99);
+    width: 90%;
+    text-align: center;
+    margin-top: -255px;
+    margin-left: 50px;
+    position: absolute;
+    z-index: 2;
+}
+
+.sobre h1{
+    font-size: 60px;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-left: 25px;
+    font-family: "bebasNeue";
+    letter-spacing: 2px;
+    cursor: pointer;
+    text-shadow: 1px 1px 4px #ccc;
+    transition: all 300ms;
+}
+
+.sobre h1:hover{
+    color: rgb(245, 70, 166);
+    transform: scale(1.2,1.2);
+}
+
+
+
+#logo{
+    float: left;
+    width: 419px;
+    height: 74px;
+    text-align: center;
+    margin-top: -4px;
+    margin-left: -55px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    overflow: hidden;
+    
+}
+
+#logo img:hover {
+    transform: scale(1.3,1.3);
+}
+
+#logo:hover {
+    border-radius: 2px;
+    color:  rgb(245, 70, 166);
+    background-color: #000000;
+}
+
+#logo .gear{
+    display: block;
+    float: left;
+    font-size: 30px;
+    margin-top: 18px;
+    margin-left: 26px;
+}
+
+#logo h3{
+    display: block;
+    font-size: 28px;
+    margin-top: 20px;
+    margin-right: -8px;
+    font-family: "bebasNeue";
+    text-decoration: none;
+    text-transform: lowercase;
+    padding: 3px;
+    transition: all 300ms;
+    font-weight: bold;
+}
+
+#logo h3{
+    font-family: "bebasNeue";
+}
+
+#logo:hover h3{
+    animation: fromRight 300ms linear;
+ }
+
+ @keyframes fromRight{
+     from{
+         transform: translateX(200%);
+     }
+     to{
+         transform: translateX(0%);
+     }
+ }
+
+ #enlace{
+    text-decoration: none; 
+    color: inherit;    
+ }
+
+ #logo:hover img{
+     animation: imagen 500ms linear;
+ }
+
+ @keyframes imagen {
+     0%{
+         transform: translateY(0%);
+     }
+     50%{
+         transform: translateY(200%);
+     }
+     100%{
+         transform: translateY(0%);
+     }
+ }
+
+ /*menu*/
+#menu{
+    float: right;
+    height: 70px;
+    background: transparent;
+    margin-right: 0%;
+}
+
+#menu ul li{
+    font-size: 22px;
+    display: inline-block; /*flota los elementos,es lo mismo que el float*/
+    margin: 0px 20px 0px 20px;
+    letter-spacing: 1px;
+    line-height: 70px;
+}
+
+#menu ul li a{
+    display: block;
+    color: inherit;
+    text-decoration: none;
+    text-align: center;
+    transition: all 500 ms;
+}
+
+#menu ul li a:hover{
+    color: rgb(245, 70, 166);
+    transform: scale(1.2,1.2);/*scale: cuando pasas el mouse sobre el enlace, hace un zoom al texto*/
+}
+
+/*menu desplegable*/
+#menu > ul > li > ul{
+    display: none;
+    position: absolute;
+    width: 155px;
+    z-index: 1;
+}
+
+#menu > ul > li:hover > ul{
+    display: block;
+}
+
+#menu > ul > li:hover > ul > li{
+    background-color: #000000;
+    width: 140px;
+    margin-left: 0px;
+    margin-top: -30px;
+    padding: 8px;
+    line-height: 53px;
+    font-size: 29px;
+    border-bottom: 1px solid #d6d6d6;
+    transition: all 300ms;
+    box-shadow: 0px 2px 2px gray;
+    border-radius: 5px;
+}
+
+#menu > ul > li:hover > ul > li a{
+   color: inherit;
+   font-size: 22px;
+}
+
+
+#menu > ul > li:hover > ul > li:hover{
+     box-shadow: 0px 0px 6px #ccc inset;
+}
+
+#menu > ul > li:hover > ul > li:hover a{
+    transform: scale(1.2,1.2);
+    color:  rgb(245, 70, 166);
+}
+
+
+/*informacion principal*/
+#principal{
+    display: flex;
+    position: absolute;
+    flex-flow: row wrap;
+    z-index: 4;
+    margin: 10px;
+    margin-top: -697px;
+    margin-bottom: -365px;
+    justify-content: center;/*content:te permite mover una subcaja de forma horizontal de la caja principal*/
+    align-content: center;/*content:te permite mover una subcaja de forma vertical de la caja principal*/
+}
+
+#info{
+    display: flex;
+    flex-flow: row wrap;/*direccion y agrupamiento de la caja */
+    width: 100%;
+    height: 90%;
+    border-radius: 10px;
+    align-content: center;/*content:te permite mover una subcaja de forma vertical de la caja principal*/
+    overflow: hidden;
+}
+
+.article{
+    flex-grow: 1;
+    flex-basis: 200px;/*ancho de la caja*/
+    margin: 15px;
+    margin-top: 50px;
+    padding: 10px;
+}
+
+.somos > img{
+    width: 91%;
+    height: 67%;
+    background-size: 100%;
+    border-radius: 10px;
+    box-shadow: 0px 0px 7px;
+}
+
+.article h4{
+    font-family: "bebasNeue";
+    font-size: 26px;
+    margin: 5px;
+    margin-bottom: 5px;
+    margin-top: 544px;
+    color: rgb(146, 146, 146);
+}
+
+.mision{
+    text-align: center;
+    box-shadow: 0px 1px 2px;
+    border-radius: 5px;
+}
+
+.mision ul li{
+    text-align: start;
+    list-style: inside;
+}
+
+.quienes{
+    height: 390px;
+}
+
+/*inicio de footer*/
+#footer{
+    width: 100%;
+    height: 480px;
+    margin-top: 650px;
+    background: black;
+    overflow: hidden;
+    position: absolute;
+    z-index: 3;
+}
+
+#footer .wrap > div{
+    float: left;
+    width: 320px;
+    height: 370px;
+    margin: 40px;
+    text-align: center;
+    color: white;
+    font-family: "bebasNeue";
+}
+
+#footer a{
+    text-decoration: none;
+    margin-left: 0px;
+    color: #37bcf9;
+    transition: all 300ms;
+   
+    
+}
+
+#footer h5{
+    display: block;
+    background: url(../img/pxgray.png) ,white;
+    height: 50px;
+    letter-spacing: 2px;
+    text-align: center;
+    font-family: "bebasNeue";
+    font-size: 40px;
+    line-height: 55px;
+    color: black;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+#location >h5{
+   margin-right: -10px;
+}
+
+#footer ul{
+    text-align: center;
+    margin: 20px;
+    font-size: 29px;
+}
+
+#footer ul li{
+   margin-top: 0px; 
+   padding: 5px;
+   border-bottom: 1px solid #ccc;
+   margin-bottom: 20px;
+}
+
+#footer ul li a {
+   display: block;
+   height: 40px;
+   color: #37bcf9;
+   text-align: left;
+   transition: all 300ms;
+ }
+
+ #footer ul li:hover a{
+     color: rgb(245, 70, 166);;
+     margin-left: 70px;
+     transform: scale(1.2,1.2);
+     text-decoration: none;
+ }
+
+ /*menu desplegable*/
+ #menu_footer > ul > li > ul{
+    display: none;
+    position: absolute;
+    width: 155px;
+    z-index: 1;
+    list-style: none;
+}
+
+#menu_footer  > ul > li:hover > ul{
+    display: block;
+    margin-top: -20px;
+}
+
+#menu_footer > ul > li:hover > ul > li{
+    background-color: #000000;
+    width: 150px;
+    margin-left: 229px;
+    margin-top: -20px;
+    padding: 8px;
+    line-height: 45px;
+    font-size: 20px;
+    border-bottom: 1px solid #d6d6d6;
+    transition: all 300ms;
+    box-shadow: 2px 2px 6px gray;
+    border-radius: 5px;
+}
+
+
+#menu_footer > ul > li:hover > ul > li a{
+    margin-left: 32px;
+}
+
+#menu_footer > ul > li:hover > ul > li:hover{
+     box-shadow: 0px 0px 6px #ccc inset;
+}
+
+#menu_footer > ul > li:hover > ul > li:hover a{
+    color:  rgb(245, 70, 166);
+    text-align: left;
+}
+
+#footer iframe{
+     width: 121%;
+     height: 345px;
+     margin-top: 10px;
+     border-radius: 5px;
+     border: 5ps solid white;
+     box-shadow: 0px 0px 5px gray;
+ }
+
+#footer img{
+    margin-bottom: 15px;
+}
+
+#browsers img{
+     width: 45px;
+}
+
+ /*redes sociales*/
+#social{  
+    height: 190px;
+}
+
+#social h5{
+    margin-left: 29px;
+    margin-right: -33px;
+}
+
+#social a{
+    display: block;
+    text-decoration: none;
+    font-size: 40px;
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+#social .overlay{
+    display: block;
+    width: 93px;
+    height: 41px;
+    font-family: "bebasNeue";
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-shadow: 0px 0px 1px #ccc;
+    border: 3px solid white;
+    box-shadow: 0px 0px 4px #ccc;
+    background: #000000;
+    position: absolute;
+    padding: 5px;
+ 
+    font-size: 20px;
+    margin-left: 130px;
+    margin-top: -75px;
+    cursor: pointer;
+    transform: translateX(-20%);
+    opacity: 0;
+    transition: all 300ms;
+}
+
+#social div:hover .overlay{
+    color: #37bcf9;
+    transform: translateX(80%);    
+    opacity: 1;
+}
+.redes img{
+    width: 40px;
+}
+.whats{
+    position: fixed;
+    margin-top: 100px;
+    margin-left: 20px;
+    z-index: 6;
+}
+.whats img {
+    width: 40px;
+}
+#toTopBtn {
+    position: fixed;
+    bottom: 26px;
+    right: 15px;
+    z-index: 98;
+    padding: 21px;
+    background-color:#37bcf9;
+    border-radius: 7px;
+}
+
+.js .cd-top--fade-out {
+    opacity: .5
+}
+
+.js .cd-top--is-visible {
+    visibility: visible;
+    opacity: 1
+}
+
+.js .cd-top {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .3s, visibility .3s, background-color .3s
+}
+
+.cd-top {
+    position: fixed;
+    bottom: 20px;
+    bottom: var(--cd-back-to-top-margin);
+    right: 20px;
+    right: var(--cd-back-to-top-margin);
+    display: inline-block;
+    height: 40px;
+    height: var(--cd-back-to-top-size);
+    width: 40px;
+    width: var(--cd-back-to-top-size);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .05) !important;
+    background: url(https://res.cloudinary.com/dxfq3iotg/image/upload/v1571057658/cd-top-arrow.svg) no-repeat center 50%;
+    background-color: hsla(5, 76%, 62%, .8);
+    background-color: hsla(var(--cd-color-3-h), var(--cd-color-3-s), var(--cd-color-3-l), 0.8)
+}
